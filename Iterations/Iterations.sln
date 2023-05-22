@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "N-Occurrence-Str", "N-Occurrence-Str\N-Occurrence-Str.vcxproj", "{03EA929C-902F-4B57-A00F-580DD8D6CF15}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinaryGap", "BinaryGap\BinaryGap.vcxproj", "{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{03EA929C-902F-4B57-A00F-580DD8D6CF15}.Release|x64.Build.0 = Release|x64
 		{03EA929C-902F-4B57-A00F-580DD8D6CF15}.Release|x86.ActiveCfg = Release|Win32
 		{03EA929C-902F-4B57-A00F-580DD8D6CF15}.Release|x86.Build.0 = Release|Win32
+		{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}.Debug|x64.ActiveCfg = Debug|x64
+		{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}.Debug|x64.Build.0 = Debug|x64
+		{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}.Debug|x86.ActiveCfg = Debug|Win32
+		{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}.Debug|x86.Build.0 = Debug|Win32
+		{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}.Release|x64.ActiveCfg = Release|x64
+		{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}.Release|x64.Build.0 = Release|x64
+		{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}.Release|x86.ActiveCfg = Release|Win32
+		{E63DFA04-19F9-46A8-A5BE-86B4F7B05CCD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
