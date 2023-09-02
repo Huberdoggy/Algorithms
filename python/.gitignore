@@ -153,8 +153,6 @@ dmypy.json
 cython_debug/
 
 # Kyle additions
-.vscode
-pyrightconfig*
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
