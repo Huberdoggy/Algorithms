@@ -23,7 +23,7 @@ class Solution:
             return (answer := [0])
         elif len(nums) >= 1 and len(nums) <= 2:
             # Eval and return the literal equivalent of 'answer[i]' or
-            # 'answer[1]' multiplied by 'answer[0]'
+            # rev 'answer[1]' and 'answer[0]'
             return (
                 answer := [x * 1 for x in nums[1::-1]] if len(nums) == 2 else [nums[0]]
             )
@@ -39,7 +39,7 @@ class Solution:
             # Now, start at 2nd to last index and work backwards
             for i in range(len(nums) - 2, -1, -1):
                 suffix_prod *= nums[i + 1]
-                answer[i] *= suffix_prod  # Each el in new arr is compounded by
+                answer[i] *= suffix_prod  # Each el in new arr is compounded
             return answer
 
 
