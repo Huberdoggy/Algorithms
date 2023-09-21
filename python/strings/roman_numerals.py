@@ -67,7 +67,7 @@ class Solution:
         # print(elems)
         for i in range(len(s)):
             if i + 1 < len(s) and conversions[s[i]] < conversions[s[i + 1]]:
-                num -= conversions[s[i]]  # Ex. IV = 4 -> (num - 4)
+                num -= conversions[s[i]]  # Ex. IV = 4 -> So, (num - 1) when i is "I"
             else:
                 num += conversions[s[i]]
 
