@@ -19,8 +19,12 @@ class Word:
 
     def _checkPalindrome(self, str_word: str, reg, my_func):
         if not str_word:
+            print("Null string entered")
             return False
         elif not re.fullmatch(reg, str_word):
+            print(
+                "\nYou must enter a SINGLE word of at least 3 characters\nOnly letters are accepted"
+            )
             return False
         else:
             return my_func(str_word)  # Pass the bool back caller, stored in class attrib
@@ -29,6 +33,4 @@ class Word:
 x = Word()
 print(
     f"The word you entered: '{x._user_word}' is identical in reverse"
-    if x._is_pal
-    else f"'{x._user_word}' is NOT a palindrome"
-)
+) if x._is_pal else ""
