@@ -23,14 +23,16 @@ class Word:
             return False
         elif not re.fullmatch(reg, str_word):
             print(
-                "\nYou must enter a SINGLE word of at least 3 characters\nOnly letters are accepted"
+                "\nYou must enter a SINGLE word of at least 3 characters\nOnly letters are accepted\n"
             )
             return False
         else:
             return my_func(str_word)  # Pass the bool back caller, stored in class attrib
 
 
-x = Word()
-print(
-    f"The word you entered: '{x._user_word}' is identical in reverse"
-) if x._is_pal else ""
+# Run a few tests in sequence
+objs = [Word() for word in range(1, 6)]
+for i, word in enumerate(objs):
+    print(f"The word '{objs[i]._user_word}' is identical in reverse") if objs[
+        i
+    ]._is_pal else ""
