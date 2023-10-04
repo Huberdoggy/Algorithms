@@ -31,24 +31,17 @@ class Solution:
         pass
 
     def numUniqueEmails(self, emails: list[str]) -> int:
-        addy_dict = {"locs": [], "domains": set()}
+        addy_dict = {}
         loc_pat = re.compile(r"(?=^)\b[a-zA-Z0-9.+]{1,}\b")
         domain_pat = re.compile(r"(?<=.)@[a-zA-Z0-9.+]{1,}\.com$")
+        rm_after = re.compile(r"\+.*")  # Anything after '+' can go
 
         for i, address in enumerate(emails):
             loc_match = re.search(loc_pat, address).group()
             domain_match = re.search(domain_pat, address).group()
-            addy_dict["locs"].append(loc_match)
-            addy_dict["domains"].add(domain_match)
+            addy_dict[i] = re.sub(rm_after, "", loc_match).replace(".", "") + domain_match
 
-        rm_after = re.compile(r"\+.*")  # Anything after '+' can go
-        for i in range(len(addy_dict["locs"])):
-            addy_dict["locs"][i] = addy_dict["locs"][i].replace(".", "")
-            addy_dict["locs"][i] = re.sub(rm_after, "", addy_dict["locs"][i])
-        addy_dict["locs"] = set(addy_dict["locs"])
-        print(addy_dict)
-
-        return max(len(addy_dict["locs"]), len(addy_dict["domains"]))
+        return len(set(addy_dict.values()))
 
 
 x = Solution()
@@ -62,7 +55,6 @@ print(
     )
 )
 print(x.numUniqueEmails(["a@leetcode.com", "b@leetcode.com", "c@leetcode.com"]))
-# TODO ths test case is one off expected. So challenge passes 185/186 cases
 print(
     x.numUniqueEmails(
         [
