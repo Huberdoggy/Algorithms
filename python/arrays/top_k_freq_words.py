@@ -16,7 +16,7 @@ Example 2:
 Input: words = ["the","day","is","sunny","the","the","the","sunny","is","is"], k = 4
 Output: ["the","is","sunny","day"]
 Explanation: "the", "is", "sunny" and "day" are the four most
-frequent words, with the number of occurrence being 4, 3, 2 and 1 respectively.
+frequent words, with the number of ocfrequenciesence being 4, 3, 2 and 1 respectively.
 """
 
 
@@ -26,7 +26,6 @@ class Solution:
 
     def topKFrequent(self, words: list[str], k: int) -> list[str]:
         frequencies, top = {}, []
-        count = 0
         for i in range(len(words)):
             if words[i] not in frequencies:
                 frequencies[f"{words[i]}"] = 1
@@ -43,12 +42,19 @@ class Solution:
 
         print(frequencies)
 
-        while count < k:
-            top.append(frequencies[count][0])  # Ref to str key of each tuple item
-            count += 1
-
-        print(top)
-        # return
+        start, end = 0, len(frequencies) - 1
+        while start < k:
+            if frequencies[start][1] == frequencies[end][1]:
+                top.append(
+                    min(frequencies[start][0], frequencies[end][0])
+                )  # Ref to str key of each tuple item
+            else:
+                top.append(frequencies[start][0])
+            start += 1
+            # 'End' is never moving, so, each iteration, if the freqs are not equal,
+            # the str val of the sorted tuple will be appended in correct descending order
+            # Else, the lexographically lowest will be chosen (aka 'coding' before 'leetcode')
+        return top
 
 
 x = Solution()
@@ -58,6 +64,4 @@ print(
         ["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4
     )
 )
-# TODO - 'coding' needs to be in output instead of 'leetcode' due to alphatbetical
-# Despite same frequency
 print(x.topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 3))
